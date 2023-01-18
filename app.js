@@ -1,10 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require('cors');
-
 const regionRoutes = require("./app/routers/region.router");
-
-
+const departmentRoutes = require("./app/routers/departments.router");
 const app = express();
 
 app.use(function (req, res, next) {
@@ -22,5 +20,6 @@ app.use(bodyParser.urlencoded({parameterLimit: 100000, limit: '500mb', extended:
 app.options('*', cors());
 
 app.use("/api/regions", regionRoutes);
+app.use("/api/departments", departmentRoutes);
 
 module.exports = app;
