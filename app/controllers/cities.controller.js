@@ -9,10 +9,10 @@ connection_info = {
 
 exports.getCities = (req, res, next) => {
     const connection = mysql.createConnection(connection_info);
-    id_department = req.params.idDepartment
+    code_department = req.params.codeDepartment
     try {
         connection.connect();
-        connection.query('SELECT * FROM cities WHERE department_code = ' + id_department, function(err, rows, fields) {
+        connection.query('SELECT * FROM cities WHERE department_code = ' + code_department, function(err, rows, fields) {
             if (err) throw err;            
             res.status(200).json(rows);
         });
